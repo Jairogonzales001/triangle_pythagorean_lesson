@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triangle Inequality & Pythagorean Converse - Interactive Lesson</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>Triangle Inequality & Pythagorean Converse</h1>
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <span class="progress-text" id="progressText">0%</span>
+            </div>
+        </div>
+
+        <!-- Phase Navigation -->
+        <div class="phase-nav">
+            <div class="phase-dot active" data-phase="1">1</div>
+            <div class="phase-dot" data-phase="2">2</div>
+            <div class="phase-dot" data-phase="3">3</div>
+            <div class="phase-dot" data-phase="4">4</div>
+            <div class="phase-dot" data-phase="5">5</div>
+        </div>
+
+        <!-- Phase 1: Introduction -->
+        <div class="content-card active" id="phase1">
+            <div class="card-header">
+                <div class="card-icon intro">📐</div>
+                <div>
+                    <div class="card-title">Welcome to Today's Lesson!</div>
+                    <div class="card-subtitle">Forming Triangles & Identifying Right Triangles</div>
+                </div>
+            </div>
+
+            <div class="standards-box">
+                <h4>Florida Standards</h4>
+                <ul>
+                    <li><strong>MA.8.GR.1.3</strong> - Use the Triangle Inequality Theorem to determine if a triangle can be formed. Use the converse of the Pythagorean Theorem to determine if a right triangle can be formed.</li>
+                </ul>
+            </div>
+
+            <h3 style="margin-bottom: 15px; color: #1a1a2e;">What You'll Learn Today:</h3>
+            <div class="objectives-grid">
+                <div class="objective-card">
+                    <div class="objective-number">1</div>
+                    <div>Use the Triangle Inequality Theorem to test if three sides can form ANY triangle</div>
+                </div>
+                <div class="objective-card">
+                    <div class="objective-number">2</div>
+                    <div>Use the Converse of the Pythagorean Theorem to test if sides form a RIGHT triangle</div>
+                </div>
+                <div class="objective-card">
+                    <div class="objective-number">3</div>
+                    <div>Classify triangles as right, acute, or obtuse using side lengths</div>
+                </div>
+            </div>
+
+            <div class="two-columns">
+                <div class="column-box triangle-ineq">
+                    <h4 style="color: #4facfe;">Triangle Inequality Theorem</h4>
+                    <p>The sum of ANY two sides must be GREATER than the third side.</p>
+                    <div class="formula-display">a + b > c</div>
+                    <div class="formula-display">a + c > b</div>
+                    <div class="formula-display">b + c > a</div>
+                    <p style="color: #666; font-size: 0.9rem; margin-top: 10px;">All THREE conditions must be true!</p>
+                </div>
+                <div class="column-box pyth-converse">
+                    <h4 style="color: #f5576c;">Converse of Pythagorean Theorem</h4>
+                    <p>If a² + b² = c² (where c is the longest side), then it's a RIGHT triangle.</p>
+                    <div class="formula-display">a² + b² = c² → Right</div>
+                    <div class="formula-display">a² + b² > c² → Acute</div>
+                    <div class="formula-display">a² + b² < c² → Obtuse</div>
+                </div>
+            </div>
+
+            <div class="theorem-box">
+                <h3>The Process</h3>
+                <p class="theorem-text">
+                    <span class="highlight">Step 1:</span> Use Triangle Inequality to check if a triangle is possible<br>
+                    <span class="highlight">Step 2:</span> If YES, use Pythagorean Converse to classify the triangle type
+                </p>
+            </div>
+
+            <div class="nav-buttons">
+                <div></div>
+                <button class="nav-btn next" onclick="nextPhase()">
+                    Let's Learn! <span>→</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Phase 2: Video -->
+        <div class="content-card" id="phase2">
+            <div class="card-header">
+                <div class="card-icon video">🎬</div>
+                <div>
+                    <div class="card-title">Watch & Learn</div>
+                    <div class="card-subtitle">Triangle Inequality & Pythagorean Converse</div>
+                </div>
+            </div>
+
+            <div class="videos-grid">
+                <div class="video-box triangle-ineq">
+                    <h4>📐 Triangle Inequality Theorem</h4>
+                    <div class="video-container">
+                        <iframe
+                            src="https://www.youtube.com/embed/0nyFeu4pCys"
+                            title="Triangle Inequality Theorem"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+                <div class="video-box pyth-converse">
+                    <h4>📏 Converse of Pythagorean Theorem</h4>
+                    <div class="video-container">
+                        <iframe
+                            src="https://www.youtube.com/embed/qT5kQxyPGtA"
+                            title="Converse of Pythagorean Theorem"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div class="key-takeaways">
+                <h4>🔑 Key Takeaways</h4>
+                <div class="takeaway-item">
+                    <strong>Triangle Inequality:</strong> Add the two smaller sides - if the sum is GREATER than the longest side, a triangle CAN be formed.
+                </div>
+                <div class="takeaway-item">
+                    <strong>Quick Check:</strong> Just check if the sum of the two shorter sides > longest side. If this fails, no triangle is possible!
+                </div>
+                <div class="takeaway-item">
+                    <strong>Pythagorean Converse:</strong> Square the two shorter sides, add them. Compare to the square of the longest side.
+                </div>
+                <div class="takeaway-item">
+                    <strong>Classification:</strong> Equal = Right triangle, Greater = Acute triangle, Less = Obtuse triangle
+                </div>
+            </div>
+
+            <div class="theorem-box">
+                <h3>Remember the Order!</h3>
+                <p class="theorem-text">
+                    <span class="highlight">1. First:</span> Can these sides form ANY triangle? (Triangle Inequality)<br><br>
+                    <span class="highlight">2. Then:</span> What TYPE of triangle? (Pythagorean Converse)
+                </p>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="nav-btn prev" onclick="prevPhase()">
+                    <span>←</span> Back
+                </button>
+                <button class="nav-btn next" onclick="nextPhase()">
+                    Start Practice! <span>→</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Phase 3: Guided Practice (3 Step-by-Step Problems) -->
+        <div class="content-card" id="phase3">
+            <div class="card-header">
+                <div class="card-icon practice">✏️</div>
+                <div>
+                    <div class="card-title">Guided Practice</div>
+                    <div class="card-subtitle">Let's solve together step-by-step!</div>
+                </div>
+            </div>
+
+            <!-- Exercise 1: 3, 4, 5 (Right Triangle) -->
+            <div class="exercise-container" id="exercise1">
+                <div class="exercise-header">
+                    <span class="exercise-badge guided">Guided Exercise 1 of 3</span>
+                </div>
+
+                <div class="problem-box">
+                    <div class="problem-question">Given these three side lengths:</div>
+                    <div class="sides-display">3, 4, 5</div>
+                    <div style="color: #666;">Can these form a triangle? If so, what type?</div>
+                </div>
+
+                <div class="steps-container">
+                    <!-- Step 1 -->
+                    <div class="step visible active" id="ex1-step1">
+                        <div class="step-header">
+                            <div class="step-number">1</div>
+                            <div class="step-title">Identify the longest side</div>
+                        </div>
+                        <div class="step-content">
+                            <div class="step-explanation">
+                                First, we need to identify which side is the <span class="math">longest</span>. This is important because we'll compare the sum of the two shorter sides to it.
+                            </div>
+                            <p style="color: #666; margin-bottom: 15px;">Looking at 3, 4, 5 - which is the longest?</p>
+                            <div class="input-group">
+                                <label>Longest side = </label>
+                                <input type="number" id="ex1-longest" placeholder="?">
+                                <button class="check-btn" onclick="checkStep1Ex1()">Check</button>
+                                <span class="result-badge" id="ex1-result1"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="step" id="ex1-step2">
+                        <div class="step-header">
+                            <div class="step-number">2</div>
+                            <div class="step-title">Apply Triangle Inequality</div>
+                        </div>
+                        <div class="step-content">
+                            <div class="step-explanation">
+                                Now we check: Is the sum of the two shorter sides <span class="math">greater than</span> the longest side?
+                            </div>
+                            <div class="calculation-row">
+                                <span class="math">3 + 4 = 7</span>
+                            </div>
+                            <div class="calculation-row">
+                                <span class="math">7 > 5?</span>
+                                <span class="result">YES! ✓</span>
+                            </div>
+                            <p style="color: #666; margin: 15px 0;">Since 7 > 5, these sides CAN form a triangle!</p>
+                            <div class="input-group">
+                                <label>Can these form a triangle?</label>
+                                <select id="ex1-triangle" style="min-width: 100px;">
+                                    <option value="">Select...</option>
+                                    <option value="yes">Yes</option>
+                                    <option value="no">No</option>
+                                </select>
+                                <button class="check-btn" onclick="checkStep2Ex1()">Check</button>
+                                <span class="result-badge" id="ex1-result2"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="step" id="ex1-step3">
+                        <div class="step-header">
+                            <div class="step-number">3</div>
+                            <div class="step-title">Apply Pythagorean Converse</div>
+                        </div>
+                        <div class="step-content">
+                            <div class="step-explanation">
+                                Now let's determine the TYPE of triangle. We compare a² + b² with c² (where c is the longest side).
+                            </div>
+                            <div class="calculation-row">
+                                <span class="math">a² + b² = 3² + 4² = 9 + 16 = 25</span>
+                            </div>
+                            <div class="calculation-row">
+                                <span class="math">c² = 5² = 25</span>
+                            </div>
+                            <div class="calculation-row">
+                                <span class="math">25 = 25</span>
+                                <span class="result">Equal! → Right Triangle ✓</span>
+                            </div>
+                            <p style="color: #666; margin: 15px 0;">Since a² + b² = c², this is a RIGHT triangle!</p>
+                            <div class="input-group">
+                                <label>Triangle type:</label>
+                                <select id="ex1-type" style="min-width: 150px;">
+                                    <option value="">Select...</option>
+                                    <option value="right">Right Triangle</option>
+                                    <option value="acute">Acute Triangle</option>
+                                    <option value="obtuse">Obtuse Triangle</option>
+                                </select>
+                                <button class="check-btn" onclick="checkStep3Ex1()">Check</button>
+                                <span class="result-badge" id="ex1-result3"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Complete -->
+                    <div class="step" id="ex1-step4">
+                        <div class="step-header">
+                            <div class="step-number">4</div>
+                            <div class="step-title">Summary</div>
+                        </div>
+                        <div class="step-content">
+                            <div class="feedback show correct">
+                                <div class="feedback-icon">🎉</div>
+                                <strong>Excellent!</strong><br>
+                                Sides 3, 4, 5 form a <strong>RIGHT TRIANGLE</strong>!<br>
+                                <em>This is the famous 3-4-5 Pythagorean triple!</em>
+                            </div>
+                            <button class="check-btn" style="margin-top: 15px;" onclick="completeExercise(1)">Continue →</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exercise 2: 2, 3, 7 (Not a Triangle) -->
+            <div class="exercise-container" id="exercise2" style="display: none;">
+                <div class="exercise-header">
+                    <span class="exercise-badge guided">Guided Exercise 2 of 3</span>
+                </div>
+
+                <div class="problem-box">
+                    <div class="problem-question">Given these three side lengths:</div>
+                    <div class="sides-display">2, 3, 7</div>
+                    <div style="color: #666;">Can these form a triangle? If so, what type?</div>
+                </div>
+
+                <div class="steps-container">
+                    <!-- Step 1 -->
+                    <div class="step visible active" id="ex2-step1">
+                        <div class="step-header">
+                            <div class="step-number">1</div>
+                            <div class="step-title">Identify the longest side</div>
+                        </div>
+                        <div class="step-content">
+                            <div class="step-explanation">
+                                Looking at 2, 3, 7 - which is the longest side?
+                            </div>
+                            <div class="input-group">
+                                <label>Longest side = </label>
+                                <input type="number" id="ex2-longest" placeholder="?">
+                                <button class="check-btn" onclick="checkStep1Ex2()">Check</button>
+                                <span class="result-badge" id="ex2-result1"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="step" id="ex2-step2">
+                        <div class="step-header">
+                            <div class="step-number">2</div>
+                            <div class="step-title">Apply Triangle Inequality</div>
+                        </div>
+                        <div class="step-content">
+                            <div class="step-explanation">
+                                Check: Is the sum of the two shorter sides <span class="math">greater than</span> the longest side?
+                            </div>
+                            <div class="calculation-row">
+                                <span class="math">2 + 3 = 5</span>
+                            </div>
+                            <div class="calculation-row">
+                                <span class="math">5 > 7?</span>
+                                <span class="fail">NO! ✗</span>
+                            </div>
+                            <p style="color: #dc2626; margin: 15px 0; font-weight: 600;">Since 5 is NOT greater than 7, these sides CANNOT form a triangle!</p>
+                            <div class="input-group">
+                                <label>Can these form a triangle?</label>
+                                <select id="ex2-triangle" style="min-width: 100px;">
+                                    <option value="">Select...</option>
+                                    <option value="yes">Yes</option>
+                                    <option value="no">No</option>
+                                </select>
+                                <button class="check-btn" onclick="checkStep2Ex2()">Check</button>
+                                <span class="result-badge" id="ex2-result2"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Complete -->
+                    <div class="step" id="ex2-step3">
+                        <div class="step-header">
+                            <div class="step-number">3</div>
+                            <div class="step-title">Summary</div>
+                        </div>
+                        <div class="step-content">
+                            <div class="feedback show correct">
+                                <div class="feedback-icon">💡</div>
+                                <strong>Correct!</strong><br>
+                                Sides 2, 3, 7 <strong>CANNOT form a triangle</strong>!<br>
+                                <em>The two short sides (2+3=5) can't "reach" to close the triangle when the longest side is 7.</em>
+                            </div>
+                            <button class="check-btn" style="margin-top: 15px;" onclick="completeExercise(2)">Continue →</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exercise 3: 5, 12, 13 (Right Triangle) -->
+            <div class="exercise-container" id="exercise3" style="display: none;">
+                <div class="exercise-header">
+                    <span class="exercise-badge guided">Guided Exercise 3 of 3</span>
+                </div>
+
+                <div class="problem-box">
+                    <div class="problem-question">Given these three side lengths:</div>
+                    <div class="sides-display">5, 12, 13</div>
+                    <div style="color: #666;">Can these form a triangle? If so, what type?</div>
+                </div>
+
+                <div class="steps-container">
+                    <!-- Step 1 -->
+                    <div class="step visible active" id="ex3-step1">
+                        <div class="step-header">
+                            <div class="step-number">1</div>
+                            <div class="step-title">Check Triangle Inequality (Quick Method)</div>
+                        </div>
+                        <div class="step-content">
+                            <div class="step-explanation">
+                                <strong>Quick Check:</strong> Add the two shorter sides and compare to the longest.<br>
+                                <span class="math">5 + 12 = 17</span><br>
+                                <span class="math">17 > 13?</span> <strong style="color: #10b981;">YES!</strong>
+                            </div>
+                            <p style="color: #666; margin: 15px 0;">The Triangle Inequality is satisfied. These CAN form a triangle!</p>
+                            <div class="input-group">
+                                <label>Triangle is possible?</label>
+                                <select id="ex3-possible" style="min-width: 100px;">
+                                    <option value="">Select...</option>
+                                    <option value="yes">Yes</option>
+                                    <option value="no">No</option>
+                                </select>
+                                <button class="check-btn" onclick="checkStep1Ex3()">Check</button>
+                                <span class="result-badge" id="ex3-result1"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="step" id="ex3-step2">
+                        <div class="step-header">
+                            <div class="step-number">2</div>
+                            <div class="step-title">Calculate the squares</div>
+                        </div>
+                        <div class="step-content">
+                            <div class="step-explanation">
+                                Now let's use the Pythagorean Converse. First, calculate:
+                            </div>
+                            <div class="calculation-row">
+                                <span class="math">5² = ?</span>
+                            </div>
+                            <div class="input-group">
+                                <label>5² = </label>
+                                <input type="number" id="ex3-sq1" placeholder="?">
+                                <button class="check-btn" onclick="checkStep2Ex3()">Check</button>
+                                <span class="result-badge" id="ex3-result2"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="step" id="ex3-step3">
+                        <div class="step-header">
+                            <div class="step-number">3</div>
+                            <div class="step-title">Complete the comparison</div>
+                        </div>
+                        <div class="step-content">
+                            <div class="step-explanation">
+                                Now we have:
+                            </div>
+                            <div class="calculation-row">
+                                <span class="math">a² + b² = 5² + 12² = 25 + 144 = 169</span>
+                            </div>
+                            <div class="calculation-row">
+                                <span class="math">c² = 13² = 169</span>
+                            </div>
+                            <div class="calculation-row">
+                                <span class="math">169 = 169</span>
+                                <span class="result">Equal! ✓</span>
+                            </div>
+                            <div class="input-group">
+                                <label>Since a² + b² = c², this is a:</label>
+                                <select id="ex3-type" style="min-width: 150px;">
+                                    <option value="">Select...</option>
+                                    <option value="right">Right Triangle</option>
+                                    <option value="acute">Acute Triangle</option>
+                                    <option value="obtuse">Obtuse Triangle</option>
+                                </select>
+                                <button class="check-btn" onclick="checkStep3Ex3()">Check</button>
+                                <span class="result-badge" id="ex3-result3"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Complete -->
+                    <div class="step" id="ex3-step4">
+                        <div class="step-header">
+                            <div class="step-number">4</div>
+                            <div class="step-title">Summary</div>
+                        </div>
+                        <div class="step-content">
+                            <div class="feedback show correct">
+                                <div class="feedback-icon">🎉</div>
+                                <strong>Excellent!</strong><br>
+                                Sides 5, 12, 13 form a <strong>RIGHT TRIANGLE</strong>!<br>
+                                <em>This is another famous Pythagorean triple!</em>
+                            </div>
+                            <button class="check-btn" style="margin-top: 15px;" onclick="completeExercise(3)">Continue →</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="nav-btn prev" onclick="prevPhase()">
+                    <span>←</span> Back
+                </button>
+                <button class="nav-btn next" onclick="nextPhase()" id="phase3Next" disabled>
+                    Independent Practice <span>→</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Phase 4: Independent Practice -->
+        <div class="content-card" id="phase4">
+            <div class="card-header">
+                <div class="card-icon practice">🎯</div>
+                <div>
+                    <div class="card-title">Independent Practice</div>
+                    <div class="card-subtitle">Now it's YOUR turn!</div>
+                </div>
+            </div>
+
+            <div class="theorem-box" style="margin-top: 0; margin-bottom: 30px;">
+                <h3>Remember!</h3>
+                <p class="theorem-text">
+                    <span class="highlight">Step 1:</span> Triangle Inequality: sum of two shorter sides > longest side<br>
+                    <span class="highlight">Step 2:</span> If triangle is possible, compare a² + b² with c²
+                </p>
+            </div>
+
+            <div class="exercise-container">
+                <div class="exercise-header">
+                    <span class="exercise-badge independent">10 Problems</span>
+                    <span style="color: #666;">Score: <span id="independentScore">0</span>/10</span>
+                </div>
+
+                <!-- Problem 1: 6, 8, 10 (Yes - Right) -->
+                <div class="quick-check" id="ind1">
+                    <div class="quick-question">
+                        <div class="sides"><strong>1.</strong> Sides: 6, 8, 10</div>
+                        <div class="sub-question">Can form triangle? What type?</div>
+                    </div>
+                    <div class="quick-answers">
+                        <button class="answer-btn" onclick="checkIndependent(1, 'no', this)">No Triangle</button>
+                        <button class="answer-btn" onclick="checkIndependent(1, 'right', this)">Right</button>
+                        <button class="answer-btn" onclick="checkIndependent(1, 'acute', this)">Acute</button>
+                        <button class="answer-btn" onclick="checkIndependent(1, 'obtuse', this)">Obtuse</button>
+                    </div>
+                    <div class="quick-result" id="ind1-result"></div>
+                </div>
+
+                <!-- Problem 2: 4, 5, 10 (No Triangle) -->
+                <div class="quick-check" id="ind2">
+                    <div class="quick-question">
+                        <div class="sides"><strong>2.</strong> Sides: 4, 5, 10</div>
+                        <div class="sub-question">Can form triangle? What type?</div>
+                    </div>
+                    <div class="quick-answers">
+                        <button class="answer-btn" onclick="checkIndependent(2, 'no', this)">No Triangle</button>
+                        <button class="answer-btn" onclick="checkIndependent(2, 'right', this)">Right</button>
+                        <button class="answer-btn" onclick="checkIndependent(2, 'acute', this)">Acute</button>
+                        <button class="answer-btn" onclick="checkIndependent(2, 'obtuse', this)">Obtuse</button>
+                    </div>
+                    <div class="quick-result" id="ind2-result"></div>
+                </div>
+
+                <!-- Problem 3: 5, 5, 5 (Yes - Acute/Equilateral) -->
+                <div class="quick-check" id="ind3">
+                    <div class="quick-question">
+                        <div class="sides"><strong>3.</strong> Sides: 5, 5, 5</div>
+                        <div class="sub-question">Can form triangle? What type?</div>
+                    </div>
+                    <div class="quick-answers">
+                        <button class="answer-btn" onclick="checkIndependent(3, 'no', this)">No Triangle</button>
+                        <button class="answer-btn" onclick="checkIndependent(3, 'right', this)">Right</button>
+                        <button class="answer-btn" onclick="checkIndependent(3, 'acute', this)">Acute</button>
+                        <button class="answer-btn" onclick="checkIndependent(3, 'obtuse', this)">Obtuse</button>
+                    </div>
+                    <div class="quick-result" id="ind3-result"></div>
+                </div>
+
+                <!-- Problem 4: 8, 15, 17 (Yes - Right) -->
+                <div class="quick-check" id="ind4">
+                    <div class="quick-question">
+                        <div class="sides"><strong>4.</strong> Sides: 8, 15, 17</div>
+                        <div class="sub-question">Can form triangle? What type?</div>
+                    </div>
+                    <div class="quick-answers">
+                        <button class="answer-btn" onclick="checkIndependent(4, 'no', this)">No Triangle</button>
+                        <button class="answer-btn" onclick="checkIndependent(4, 'right', this)">Right</button>
+                        <button class="answer-btn" onclick="checkIndependent(4, 'acute', this)">Acute</button>
+                        <button class="answer-btn" onclick="checkIndependent(4, 'obtuse', this)">Obtuse</button>
+                    </div>
+                    <div class="quick-result" id="ind4-result"></div>
+                </div>
+
+                <!-- Problem 5: 3, 5, 9 (No Triangle) -->
+                <div class="quick-check" id="ind5">
+                    <div class="quick-question">
+                        <div class="sides"><strong>5.</strong> Sides: 3, 5, 9</div>
+                        <div class="sub-question">Can form triangle? What type?</div>
+                    </div>
+                    <div class="quick-answers">
+                        <button class="answer-btn" onclick="checkIndependent(5, 'no', this)">No Triangle</button>
+                        <button class="answer-btn" onclick="checkIndependent(5, 'right', this)">Right</button>
+                        <button class="answer-btn" onclick="checkIndependent(5, 'acute', this)">Acute</button>
+                        <button class="answer-btn" onclick="checkIndependent(5, 'obtuse', this)">Obtuse</button>
+                    </div>
+                    <div class="quick-result" id="ind5-result"></div>
+                </div>
+
+                <!-- Problem 6: 7, 8, 9 (Yes - Acute) -->
+                <div class="quick-check" id="ind6">
+                    <div class="quick-question">
+                        <div class="sides"><strong>6.</strong> Sides: 7, 8, 9</div>
+                        <div class="sub-question">Can form triangle? What type?</div>
+                    </div>
+                    <div class="quick-answers">
+                        <button class="answer-btn" onclick="checkIndependent(6, 'no', this)">No Triangle</button>
+                        <button class="answer-btn" onclick="checkIndependent(6, 'right', this)">Right</button>
+                        <button class="answer-btn" onclick="checkIndependent(6, 'acute', this)">Acute</button>
+                        <button class="answer-btn" onclick="checkIndependent(6, 'obtuse', this)">Obtuse</button>
+                    </div>
+                    <div class="quick-result" id="ind6-result"></div>
+                </div>
+
+                <!-- Problem 7: 5, 7, 11 (Yes - Obtuse) -->
+                <div class="quick-check" id="ind7">
+                    <div class="quick-question">
+                        <div class="sides"><strong>7.</strong> Sides: 5, 7, 11</div>
+                        <div class="sub-question">Can form triangle? What type?</div>
+                    </div>
+                    <div class="quick-answers">
+                        <button class="answer-btn" onclick="checkIndependent(7, 'no', this)">No Triangle</button>
+                        <button class="answer-btn" onclick="checkIndependent(7, 'right', this)">Right</button>
+                        <button class="answer-btn" onclick="checkIndependent(7, 'acute', this)">Acute</button>
+                        <button class="answer-btn" onclick="checkIndependent(7, 'obtuse', this)">Obtuse</button>
+                    </div>
+                    <div class="quick-result" id="ind7-result"></div>
+                </div>
+
+                <!-- Problem 8: 9, 12, 15 (Yes - Right) -->
+                <div class="quick-check" id="ind8">
+                    <div class="quick-question">
+                        <div class="sides"><strong>8.</strong> Sides: 9, 12, 15</div>
+                        <div class="sub-question">Can form triangle? What type?</div>
+                    </div>
+                    <div class="quick-answers">
+                        <button class="answer-btn" onclick="checkIndependent(8, 'no', this)">No Triangle</button>
+                        <button class="answer-btn" onclick="checkIndependent(8, 'right', this)">Right</button>
+                        <button class="answer-btn" onclick="checkIndependent(8, 'acute', this)">Acute</button>
+                        <button class="answer-btn" onclick="checkIndependent(8, 'obtuse', this)">Obtuse</button>
+                    </div>
+                    <div class="quick-result" id="ind8-result"></div>
+                </div>
+
+                <!-- Problem 9: 1, 2, 3 (No - boundary case) -->
+                <div class="quick-check" id="ind9">
+                    <div class="quick-question">
+                        <div class="sides"><strong>9.</strong> Sides: 1, 2, 3</div>
+                        <div class="sub-question">Can form triangle? What type?</div>
+                    </div>
+                    <div class="quick-answers">
+                        <button class="answer-btn" onclick="checkIndependent(9, 'no', this)">No Triangle</button>
+                        <button class="answer-btn" onclick="checkIndependent(9, 'right', this)">Right</button>
+                        <button class="answer-btn" onclick="checkIndependent(9, 'acute', this)">Acute</button>
+                        <button class="answer-btn" onclick="checkIndependent(9, 'obtuse', this)">Obtuse</button>
+                    </div>
+                    <div class="quick-result" id="ind9-result"></div>
+                </div>
+
+                <!-- Problem 10: 7, 24, 25 (Yes - Right) -->
+                <div class="quick-check" id="ind10">
+                    <div class="quick-question">
+                        <div class="sides"><strong>10.</strong> Sides: 7, 24, 25</div>
+                        <div class="sub-question">Can form triangle? What type?</div>
+                    </div>
+                    <div class="quick-answers">
+                        <button class="answer-btn" onclick="checkIndependent(10, 'no', this)">No Triangle</button>
+                        <button class="answer-btn" onclick="checkIndependent(10, 'right', this)">Right</button>
+                        <button class="answer-btn" onclick="checkIndependent(10, 'acute', this)">Acute</button>
+                        <button class="answer-btn" onclick="checkIndependent(10, 'obtuse', this)">Obtuse</button>
+                    </div>
+                    <div class="quick-result" id="ind10-result"></div>
+                </div>
+            </div>
+
+            <div class="score-display" id="finalScore" style="display: none;">
+                <h3>Great Work!</h3>
+                <div class="score-number" id="finalScoreNumber">0/10</div>
+                <div class="score-text">Problems Correct</div>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="nav-btn prev" onclick="prevPhase()">
+                    <span>←</span> Back
+                </button>
+                <button class="nav-btn next" onclick="nextPhase()" id="phase4Next" disabled>
+                    See Summary <span>→</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Phase 5: Completion -->
+        <div class="content-card" id="phase5">
+            <div class="completion-screen">
+                <div class="completion-icon">🎉</div>
+                <div class="completion-title">Congratulations!</div>
+                <div class="completion-message">
+                    You've completed the Triangle Inequality & Pythagorean Converse lesson!<br>
+                    You can now determine if sides form a triangle and classify triangle types.
+                </div>
+
+                <div class="theorem-box" style="text-align: left;">
+                    <h3 style="text-align: center;">What You Learned</h3>
+                    <p class="theorem-text">
+                        <span class="highlight">✓</span> Triangle Inequality: Sum of two shorter sides > longest side<br><br>
+                        <span class="highlight">✓</span> Pythagorean Converse for classifying triangles:<br>
+                        &nbsp;&nbsp;&nbsp;• a² + b² = c² → Right Triangle<br>
+                        &nbsp;&nbsp;&nbsp;• a² + b² > c² → Acute Triangle<br>
+                        &nbsp;&nbsp;&nbsp;• a² + b² < c² → Obtuse Triangle<br><br>
+                        <span class="highlight">✓</span> Always check if a triangle is possible FIRST!
+                    </p>
+                </div>
+
+                <div class="score-display" style="margin-top: 30px;">
+                    <h3>Your Final Score</h3>
+                    <div class="score-number" id="overallScore">0/13</div>
+                    <div class="score-text">Total Problems Completed</div>
+                </div>
+
+                <div style="margin-top: 30px;">
+                    <button class="print-btn" onclick="printResults()">
+                        🖨️ Print Results
+                    </button>
+                    <button class="restart-btn" onclick="restartLesson()">
+                        🔄 Restart Lesson
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Printable Summary -->
+        <div class="print-summary" id="printSummary">
+            <h1>Triangle Inequality & Pythagorean Converse - Lesson Results</h1>
+
+            <div class="student-info">
+                <span>Student Name: <span class="line"></span></span>
+                <span>Date: <span class="line"></span></span>
+            </div>
+
+            <div class="standards-print">
+                <h3>Florida Standards Covered</h3>
+                <p><strong>MA.8.GR.1.3</strong> - Use the Triangle Inequality Theorem to determine if a triangle can be formed from a given set of sides. Use the converse of the Pythagorean Theorem to determine if a right triangle can be formed from a given set of sides.</p>
+            </div>
+
+            <div class="results-section">
+                <h3>Guided Practice (3 Problems)</h3>
+                <div class="result-item correct">
+                    <span>1. Sides: 3, 4, 5</span>
+                    <span>Right Triangle ✓</span>
+                </div>
+                <div class="result-item correct">
+                    <span>2. Sides: 2, 3, 7</span>
+                    <span>No Triangle ✓</span>
+                </div>
+                <div class="result-item correct">
+                    <span>3. Sides: 5, 12, 13</span>
+                    <span>Right Triangle ✓</span>
+                </div>
+            </div>
+
+            <div class="results-section">
+                <h3>Independent Practice (10 Problems)</h3>
+                <div id="printIndependentResults"></div>
+            </div>
+
+            <div class="final-score-print">
+                <h2>Final Score</h2>
+                <div class="big-score" id="printFinalScore">0/13</div>
+                <div class="percentage" id="printPercentage">0%</div>
+            </div>
+
+            <div class="formula-reminder">
+                <h3>Remember the Formulas!</h3>
+                <p>
+                    <strong>Triangle Inequality Theorem:</strong><br>
+                    Sum of two shorter sides > longest side<br><br>
+                    <strong>Converse of Pythagorean Theorem:</strong><br>
+                    a² + b² = c² → Right Triangle<br>
+                    a² + b² > c² → Acute Triangle<br>
+                    a² + b² < c² → Obtuse Triangle
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
