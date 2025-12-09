@@ -5,20 +5,18 @@ let guidedExercisesDone = 0;
 let independentScore = 0;
 let independentAnswered = 0;
 
-// Independent Practice Data - Varied Question Types
+// Independent Practice Data
 const independentProblems = [
-    { type: 'classify', question: 'Sides: 6, 8, 10', answer: 'right', display: '6, 8, 10' },
-    { type: 'classify', question: 'Sides: 4, 5, 10', answer: 'no', display: '4, 5, 10' },
-    { type: 'range', question: 'Two sides are 5 and 9. Third side between?', answer: '4-14', display: 'Sides 5 and 9' },
-    { type: 'classify', question: 'Sides: 5, 7, 10', answer: 'obtuse', display: '5, 7, 10' },
-    { type: 'word', question: '13-ft ladder, base 5 ft from wall. Height?', answer: '12', display: 'Ladder problem' },
-    { type: 'classify', question: 'Sides: 7, 8, 9', answer: 'acute', display: '7, 8, 9' },
-    { type: 'find-hyp', question: 'Right triangle legs 9 and 12. Hypotenuse?', answer: '15', display: 'Find hypotenuse' },
-    { type: 'classify', question: 'Sides: 1, 2, 3', answer: 'no', display: '1, 2, 3' },
-    { type: 'word', question: 'Garden sides 8m, 15m, 17m. Right triangle?', answer: 'yes', display: 'Garden problem' },
-    { type: 'invalid-side', question: 'Sides 7 and 12. Which NOT valid third side?', answer: '19', display: 'Invalid third side' },
-    { type: 'find-leg', question: 'Hypotenuse 10, leg 6. Other leg?', answer: '8', display: 'Find missing leg' },
-    { type: 'word', question: 'TV 36in x 27in. Diagonal?', answer: '45', display: 'TV diagonal' }
+    { sides: '6, 8, 10', answer: 'right', explanation: '6+8=14>10, 36+64=100=100' },
+    { sides: '4, 5, 10', answer: 'no', explanation: '4+5=9<10' },
+    { sides: '5, 5, 5', answer: 'acute', explanation: '5+5=10>5, 25+25=50>25' },
+    { sides: '8, 15, 17', answer: 'right', explanation: '8+15=23>17, 64+225=289=289' },
+    { sides: '3, 5, 9', answer: 'no', explanation: '3+5=8<9' },
+    { sides: '7, 8, 9', answer: 'acute', explanation: '7+8=15>9, 49+64=113>81' },
+    { sides: '5, 7, 11', answer: 'obtuse', explanation: '5+7=12>11, 25+49=74<121' },
+    { sides: '9, 12, 15', answer: 'right', explanation: '9+12=21>15, 81+144=225=225' },
+    { sides: '1, 2, 3', answer: 'no', explanation: '1+2=3, not > 3' },
+    { sides: '7, 24, 25', answer: 'right', explanation: '7+24=31>25, 49+576=625=625' }
 ];
 
 let studentAnswers = {};
@@ -243,11 +241,11 @@ function checkIndependent(problem, userAnswer, btn) {
     independentAnswered++;
     document.getElementById('independentScore').textContent = independentScore;
 
-    if (independentAnswered >= 12) {
+    if (independentAnswered >= 10) {
         document.getElementById('finalScore').style.display = 'block';
-        document.getElementById('finalScoreNumber').textContent = independentScore + '/12';
+        document.getElementById('finalScoreNumber').textContent = independentScore + '/10';
         document.getElementById('phase4Next').disabled = false;
-        document.getElementById('overallScore').textContent = (3 + independentScore) + '/15';
+        document.getElementById('overallScore').textContent = (3 + independentScore) + '/13';
     }
 }
 
@@ -260,43 +258,19 @@ function printResults() {
         'no': 'No Triangle',
         'right': 'Right Triangle',
         'acute': 'Acute Triangle',
-        'obtuse': 'Obtuse Triangle',
-        '4-14': '4 and 14',
-        '5-9': '5 and 9',
-        '1-14': '1 and 14',
-        '4-9': '4 and 9',
-        '12': '12 ft',
-        '8': '8',
-        '18': '18',
-        '10': '10',
-        '15': '15',
-        '21': '21',
-        '225': '225',
-        'yes': 'Yes, right triangle',
-        'no-acute': 'No, acute',
-        'no-obtuse': 'No, obtuse',
-        'no-invalid': 'Not valid',
-        '6': '6',
-        '19': '19',
-        '4': '4',
-        '16': '16',
-        '64': '64',
-        '45': '45 inches',
-        '63': '63 inches',
-        '54': '54 inches',
-        '40': '40 inches'
+        'obtuse': 'Obtuse Triangle'
     };
 
-    for (let i = 1; i <= 12; i++) {
+    for (let i = 1; i <= 10; i++) {
         const problem = independentProblems[i - 1];
         const answer = studentAnswers[i];
         const isCorrect = answer ? answer.isCorrect : false;
-        const userAns = answer ? (answerLabels[answer.userAnswer] || answer.userAnswer) : 'N/A';
-        const correctAns = answerLabels[problem.answer] || problem.answer;
+        const userAns = answer ? answerLabels[answer.userAnswer] : 'N/A';
+        const correctAns = answerLabels[problem.answer];
 
         resultsHTML += `
             <div class="result-item ${isCorrect ? 'correct' : 'incorrect'}">
-                <span>${i}. ${problem.display}</span>
+                <span>${i}. Sides: ${problem.sides}</span>
                 <span>${userAns} ${isCorrect ? '\u2713' : '\u2717 (Answer: ' + correctAns + ')'}</span>
             </div>
         `;
@@ -305,8 +279,8 @@ function printResults() {
     resultsContainer.innerHTML = resultsHTML;
 
     const totalCorrect = 3 + independentScore;
-    const percentage = Math.round((totalCorrect / 15) * 100);
-    document.getElementById('printFinalScore').textContent = totalCorrect + '/15';
+    const percentage = Math.round((totalCorrect / 13) * 100);
+    document.getElementById('printFinalScore').textContent = totalCorrect + '/13';
     document.getElementById('printPercentage').textContent = percentage + '%';
 
     window.print();
@@ -364,18 +338,16 @@ function restartLesson() {
     }
 
     // Reset independent practice
-    for (let i = 1; i <= 12; i++) {
+    for (let i = 1; i <= 10; i++) {
         const container = document.getElementById(`ind${i}`);
-        if (container) {
-            const buttons = container.querySelectorAll('.answer-btn');
-            const resultEl = document.getElementById(`ind${i}-result`);
+        const buttons = container.querySelectorAll('.answer-btn');
+        const resultEl = document.getElementById(`ind${i}-result`);
 
-            buttons.forEach(btn => {
-                btn.disabled = false;
-                btn.classList.remove('correct', 'incorrect', 'selected');
-            });
-            if (resultEl) resultEl.textContent = '';
-        }
+        buttons.forEach(btn => {
+            btn.disabled = false;
+            btn.classList.remove('correct', 'incorrect', 'selected');
+        });
+        resultEl.textContent = '';
     }
 
     document.getElementById('independentScore').textContent = '0';

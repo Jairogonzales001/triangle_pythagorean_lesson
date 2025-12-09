@@ -519,11 +519,11 @@
 
             <div class="exercise-container">
                 <div class="exercise-header">
-                    <span class="exercise-badge independent">12 Problems</span>
-                    <span style="color: #666;">Score: <span id="independentScore">0</span>/12</span>
+                    <span class="exercise-badge independent">10 Problems</span>
+                    <span style="color: #666;">Score: <span id="independentScore">0</span>/10</span>
                 </div>
 
-                <!-- Problem 1: Classic - 6, 8, 10 (Yes - Right) -->
+                <!-- Problem 1: 6, 8, 10 (Yes - Right) -->
                 <div class="quick-check" id="ind1">
                     <div class="quick-question">
                         <div class="sides"><strong>1.</strong> Sides: 6, 8, 10</div>
@@ -538,7 +538,7 @@
                     <div class="quick-result" id="ind1-result"></div>
                 </div>
 
-                <!-- Problem 2: No Triangle - 4, 5, 10 -->
+                <!-- Problem 2: 4, 5, 10 (No Triangle) -->
                 <div class="quick-check" id="ind2">
                     <div class="quick-question">
                         <div class="sides"><strong>2.</strong> Sides: 4, 5, 10</div>
@@ -553,25 +553,25 @@
                     <div class="quick-result" id="ind2-result"></div>
                 </div>
 
-                <!-- Problem 3: Third Side Range -->
+                <!-- Problem 3: 5, 5, 5 (Yes - Acute/Equilateral) -->
                 <div class="quick-check" id="ind3">
                     <div class="quick-question">
-                        <div class="sides"><strong>3.</strong> Two sides of a triangle are 5 and 9.</div>
-                        <div class="sub-question">The third side must be between which values?</div>
+                        <div class="sides"><strong>3.</strong> Sides: 5, 5, 5</div>
+                        <div class="sub-question">Can form triangle? What type?</div>
                     </div>
                     <div class="quick-answers">
-                        <button class="answer-btn" onclick="checkIndependent(3, '4-14', this)">4 and 14</button>
-                        <button class="answer-btn" onclick="checkIndependent(3, '5-9', this)">5 and 9</button>
-                        <button class="answer-btn" onclick="checkIndependent(3, '1-14', this)">1 and 14</button>
-                        <button class="answer-btn" onclick="checkIndependent(3, '4-9', this)">4 and 9</button>
+                        <button class="answer-btn" onclick="checkIndependent(3, 'no', this)">No Triangle</button>
+                        <button class="answer-btn" onclick="checkIndependent(3, 'right', this)">Right</button>
+                        <button class="answer-btn" onclick="checkIndependent(3, 'acute', this)">Acute</button>
+                        <button class="answer-btn" onclick="checkIndependent(3, 'obtuse', this)">Obtuse</button>
                     </div>
                     <div class="quick-result" id="ind3-result"></div>
                 </div>
 
-                <!-- Problem 4: Obtuse - 5, 7, 10 -->
+                <!-- Problem 4: 8, 15, 17 (Yes - Right) -->
                 <div class="quick-check" id="ind4">
                     <div class="quick-question">
-                        <div class="sides"><strong>4.</strong> Sides: 5, 7, 10</div>
+                        <div class="sides"><strong>4.</strong> Sides: 8, 15, 17</div>
                         <div class="sub-question">Can form triangle? What type?</div>
                     </div>
                     <div class="quick-answers">
@@ -583,22 +583,22 @@
                     <div class="quick-result" id="ind4-result"></div>
                 </div>
 
-                <!-- Problem 5: Word Problem - Ladder -->
+                <!-- Problem 5: 3, 5, 9 (No Triangle) -->
                 <div class="quick-check" id="ind5">
                     <div class="quick-question">
-                        <div class="sides"><strong>5.</strong> A 13-foot ladder leans against a wall. The base is 5 feet from the wall.</div>
-                        <div class="sub-question">How high does the ladder reach on the wall?</div>
+                        <div class="sides"><strong>5.</strong> Sides: 3, 5, 9</div>
+                        <div class="sub-question">Can form triangle? What type?</div>
                     </div>
                     <div class="quick-answers">
-                        <button class="answer-btn" onclick="checkIndependent(5, '8', this)">8 ft</button>
-                        <button class="answer-btn" onclick="checkIndependent(5, '12', this)">12 ft</button>
-                        <button class="answer-btn" onclick="checkIndependent(5, '18', this)">18 ft</button>
-                        <button class="answer-btn" onclick="checkIndependent(5, '10', this)">10 ft</button>
+                        <button class="answer-btn" onclick="checkIndependent(5, 'no', this)">No Triangle</button>
+                        <button class="answer-btn" onclick="checkIndependent(5, 'right', this)">Right</button>
+                        <button class="answer-btn" onclick="checkIndependent(5, 'acute', this)">Acute</button>
+                        <button class="answer-btn" onclick="checkIndependent(5, 'obtuse', this)">Obtuse</button>
                     </div>
                     <div class="quick-result" id="ind5-result"></div>
                 </div>
 
-                <!-- Problem 6: Acute - 7, 8, 9 -->
+                <!-- Problem 6: 7, 8, 9 (Yes - Acute) -->
                 <div class="quick-check" id="ind6">
                     <div class="quick-question">
                         <div class="sides"><strong>6.</strong> Sides: 7, 8, 9</div>
@@ -613,25 +613,25 @@
                     <div class="quick-result" id="ind6-result"></div>
                 </div>
 
-                <!-- Problem 7: Find Missing Side for Right Triangle -->
+                <!-- Problem 7: 5, 7, 11 (Yes - Obtuse) -->
                 <div class="quick-check" id="ind7">
                     <div class="quick-question">
-                        <div class="sides"><strong>7.</strong> A right triangle has legs of 9 and 12.</div>
-                        <div class="sub-question">What is the length of the hypotenuse?</div>
+                        <div class="sides"><strong>7.</strong> Sides: 5, 7, 11</div>
+                        <div class="sub-question">Can form triangle? What type?</div>
                     </div>
                     <div class="quick-answers">
-                        <button class="answer-btn" onclick="checkIndependent(7, '15', this)">15</button>
-                        <button class="answer-btn" onclick="checkIndependent(7, '21', this)">21</button>
-                        <button class="answer-btn" onclick="checkIndependent(7, '18', this)">18</button>
-                        <button class="answer-btn" onclick="checkIndependent(7, '225', this)">225</button>
+                        <button class="answer-btn" onclick="checkIndependent(7, 'no', this)">No Triangle</button>
+                        <button class="answer-btn" onclick="checkIndependent(7, 'right', this)">Right</button>
+                        <button class="answer-btn" onclick="checkIndependent(7, 'acute', this)">Acute</button>
+                        <button class="answer-btn" onclick="checkIndependent(7, 'obtuse', this)">Obtuse</button>
                     </div>
                     <div class="quick-result" id="ind7-result"></div>
                 </div>
 
-                <!-- Problem 8: Boundary Case - 1, 2, 3 -->
+                <!-- Problem 8: 9, 12, 15 (Yes - Right) -->
                 <div class="quick-check" id="ind8">
                     <div class="quick-question">
-                        <div class="sides"><strong>8.</strong> Sides: 1, 2, 3</div>
+                        <div class="sides"><strong>8.</strong> Sides: 9, 12, 15</div>
                         <div class="sub-question">Can form triangle? What type?</div>
                     </div>
                     <div class="quick-answers">
@@ -643,70 +643,40 @@
                     <div class="quick-result" id="ind8-result"></div>
                 </div>
 
-                <!-- Problem 9: Word Problem - Garden -->
+                <!-- Problem 9: 1, 2, 3 (No - boundary case) -->
                 <div class="quick-check" id="ind9">
                     <div class="quick-question">
-                        <div class="sides"><strong>9.</strong> A triangular garden has sides of 8m, 15m, and 17m.</div>
-                        <div class="sub-question">Is this garden in the shape of a right triangle?</div>
+                        <div class="sides"><strong>9.</strong> Sides: 1, 2, 3</div>
+                        <div class="sub-question">Can form triangle? What type?</div>
                     </div>
                     <div class="quick-answers">
-                        <button class="answer-btn" onclick="checkIndependent(9, 'yes', this)">Yes, it's a right triangle</button>
-                        <button class="answer-btn" onclick="checkIndependent(9, 'no-acute', this)">No, it's acute</button>
-                        <button class="answer-btn" onclick="checkIndependent(9, 'no-obtuse', this)">No, it's obtuse</button>
-                        <button class="answer-btn" onclick="checkIndependent(9, 'no-invalid', this)">Not a valid triangle</button>
+                        <button class="answer-btn" onclick="checkIndependent(9, 'no', this)">No Triangle</button>
+                        <button class="answer-btn" onclick="checkIndependent(9, 'right', this)">Right</button>
+                        <button class="answer-btn" onclick="checkIndependent(9, 'acute', this)">Acute</button>
+                        <button class="answer-btn" onclick="checkIndependent(9, 'obtuse', this)">Obtuse</button>
                     </div>
                     <div class="quick-result" id="ind9-result"></div>
                 </div>
 
-                <!-- Problem 10: Third Side Range -->
+                <!-- Problem 10: 7, 24, 25 (Yes - Right) -->
                 <div class="quick-check" id="ind10">
                     <div class="quick-question">
-                        <div class="sides"><strong>10.</strong> Two sides of a triangle are 7 and 12.</div>
-                        <div class="sub-question">Which could NOT be the third side?</div>
+                        <div class="sides"><strong>10.</strong> Sides: 7, 24, 25</div>
+                        <div class="sub-question">Can form triangle? What type?</div>
                     </div>
                     <div class="quick-answers">
-                        <button class="answer-btn" onclick="checkIndependent(10, '6', this)">6</button>
-                        <button class="answer-btn" onclick="checkIndependent(10, '10', this)">10</button>
-                        <button class="answer-btn" onclick="checkIndependent(10, '15', this)">15</button>
-                        <button class="answer-btn" onclick="checkIndependent(10, '19', this)">19</button>
+                        <button class="answer-btn" onclick="checkIndependent(10, 'no', this)">No Triangle</button>
+                        <button class="answer-btn" onclick="checkIndependent(10, 'right', this)">Right</button>
+                        <button class="answer-btn" onclick="checkIndependent(10, 'acute', this)">Acute</button>
+                        <button class="answer-btn" onclick="checkIndependent(10, 'obtuse', this)">Obtuse</button>
                     </div>
                     <div class="quick-result" id="ind10-result"></div>
-                </div>
-
-                <!-- Problem 11: Working Backwards - Find Missing Leg -->
-                <div class="quick-check" id="ind11">
-                    <div class="quick-question">
-                        <div class="sides"><strong>11.</strong> A right triangle has a hypotenuse of 10 and one leg of 6.</div>
-                        <div class="sub-question">What is the length of the other leg?</div>
-                    </div>
-                    <div class="quick-answers">
-                        <button class="answer-btn" onclick="checkIndependent(11, '8', this)">8</button>
-                        <button class="answer-btn" onclick="checkIndependent(11, '4', this)">4</button>
-                        <button class="answer-btn" onclick="checkIndependent(11, '16', this)">16</button>
-                        <button class="answer-btn" onclick="checkIndependent(11, '64', this)">64</button>
-                    </div>
-                    <div class="quick-result" id="ind11-result"></div>
-                </div>
-
-                <!-- Problem 12: Word Problem - TV Screen -->
-                <div class="quick-check" id="ind12">
-                    <div class="quick-question">
-                        <div class="sides"><strong>12.</strong> A TV screen is 36 inches wide and 27 inches tall.</div>
-                        <div class="sub-question">What is the diagonal length (screen size)?</div>
-                    </div>
-                    <div class="quick-answers">
-                        <button class="answer-btn" onclick="checkIndependent(12, '45', this)">45 inches</button>
-                        <button class="answer-btn" onclick="checkIndependent(12, '63', this)">63 inches</button>
-                        <button class="answer-btn" onclick="checkIndependent(12, '54', this)">54 inches</button>
-                        <button class="answer-btn" onclick="checkIndependent(12, '40', this)">40 inches</button>
-                    </div>
-                    <div class="quick-result" id="ind12-result"></div>
                 </div>
             </div>
 
             <div class="score-display" id="finalScore" style="display: none;">
                 <h3>Great Work!</h3>
-                <div class="score-number" id="finalScoreNumber">0/12</div>
+                <div class="score-number" id="finalScoreNumber">0/10</div>
                 <div class="score-text">Problems Correct</div>
             </div>
 
@@ -744,7 +714,7 @@
 
                 <div class="score-display" style="margin-top: 30px;">
                     <h3>Your Final Score</h3>
-                    <div class="score-number" id="overallScore">0/15</div>
+                    <div class="score-number" id="overallScore">0/13</div>
                     <div class="score-text">Total Problems Completed</div>
                 </div>
 
@@ -790,13 +760,13 @@
             </div>
 
             <div class="results-section">
-                <h3>Independent Practice (12 Problems)</h3>
+                <h3>Independent Practice (10 Problems)</h3>
                 <div id="printIndependentResults"></div>
             </div>
 
             <div class="final-score-print">
                 <h2>Final Score</h2>
-                <div class="big-score" id="printFinalScore">0/15</div>
+                <div class="big-score" id="printFinalScore">0/13</div>
                 <div class="percentage" id="printPercentage">0%</div>
             </div>
 
